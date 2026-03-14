@@ -2,12 +2,10 @@ import random
 import math
 
 def find_pi():
-    print("   VALUE OF PI - MONTE CARLO SIMULATION")
-    print("\nConcept:")
+    print("   VALUE OF PI ")
     print(" - We throw random points inside a 1x1 square")
     print(" - Count how many fall inside a quarter circle")
     print(" - PI = 4 * (points inside circle / total points)")
-    print("-" * 50)
     n = int(input("\nEnter number of random points: "))
 
     inside_circle = 0

@@ -1,13 +1,12 @@
 import random
 
-def coin_toss_simulation():
+def coin_toss():
     print("COIN TOSS GAME")
     n = int(input("Enter number of tosses: "))
 
     heads = 0
     tails = 0
 
-    print("\nSimulating coin tosses")
     for i in range(1, n + 1):
         result = random.randint(0, 1)
         if result == 0:
@@ -15,7 +14,7 @@ def coin_toss_simulation():
         else:
             tails += 1
 
-    print(f"\nTotal Tosses     : {n}")
+    print(f"\nTotal Tosses: {n}")
     print(f"Heads (H): {heads}")
     print(f"Tails (T): {tails}")
     print(f"\nProbability of Heads = {heads}/{n} = {heads/n:.4f}")
@@ -27,4 +26,4 @@ def coin_toss_simulation():
     else:
         print("\nResult: Coin is BIASED (not close to 50-50)")
 
-coin_toss_simulation()
+coin_toss()
