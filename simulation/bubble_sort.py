@@ -44,6 +44,7 @@ def bubble_sort_simulation():
             break
 
     print("\nOriginal Array:", original)
+    
     print("Sorted Array:", arr)
 
     print("\nTotal Passes:", pass_count)
