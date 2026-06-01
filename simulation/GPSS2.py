@@ -58,7 +58,7 @@ def barber_shop_simulation():
 
         status = "Waited" if wait > 0 else "No wait"
 
-       # print(customer_count, current_time, to_clock(current_time), wait, to_clock(chair_time), haircut_time, "min", to_clock(done_time), status)
+       print(customer_count, current_time, to_clock(current_time), wait, to_clock(chair_time), haircut_time, "min", to_clock(done_time), status)
 
     # Summary
     print("\nSimulation Summary:")
