@@ -1,35 +1,27 @@
 # Personal Bio-Data Card Generator
 
 print("Personal Bio-Data Card Generator")
-
 name = input("Enter your full name: ")
 city = input("Enter your city: ")
-
 age = int(input("Enter your age: "))
 height = float(input("Enter your height in feet: "))
-
 student = input("Are you a student? (yes/no): ")
-
 is_student = student.lower() == "yes"
-
 day = int(input("Enter birth day: "))
 month = int(input("Enter birth month: "))
 year = int(input("Enter birth year: "))
-
 dob = (day, month, year)
 
 print("Enter 3 hobbies:")
 hobby1 = input("Hobby 1: ")
 hobby2 = input("Hobby 2: ")
 hobby3 = input("Hobby 3: ")
-
 hobbies = [hobby1, hobby2, hobby3]
 
 print("Enter 3 languages:")
 lang1 = input("Language 1: ")
 lang2 = input("Language 2: ")
 lang3 = input("Language 3: ")
-
 languages = {lang1, lang2, lang3}
 
 profile = {

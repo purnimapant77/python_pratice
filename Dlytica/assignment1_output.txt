@@ -1,0 +1,74 @@
+(base) purnimapant@purnima:~/python_pratice$ /usr/bin/python3 /home/purnimapant/python_pratice/Dlytica/assignment1.py
+Demonstration of operator precedence & associativity
+Arithmetic Precedence i.e *,/ before +,-
+Without parenthesis:
+Result of: 2+7*100 = 702
+With parenthesis:
+Result of: (2+7)*100 = 900
+In result without parenthesis multiplication is done first
+In result with parenthesis addition is done first
+Without parenthesis:
+Result of: 20-8/2 = 16.0
+With parenthesis:
+Result of: (20-8)/2 = 6.0
+In result without parenthesis division is done first
+In result with parenthesis subtraction is done first
+Exponentiation Operator (**)
+Without parenthesis:
+Result of: 2**3**2 = 512
+With parenthesis:
+Result of: (2**3)**2 = 64
+In result without parenthesis exponentiation is done from right to left
+In result with parenthesis left side is calculated first
+
+Exponentiation and Unary Minus
+Without parenthesis:
+Result of: -5**2 = -25
+With parenthesis:
+Result of: (-5)**2 = 25
+In result without parenthesis exponentiation is done first
+In result with parenthesis -5 is taken as the base
+Left to Right Associativity
+Without parenthesis:
+Result of: 100/5*2 = 40.0
+With parenthesis:
+Result of: 100/(5*2) = 10.0
+In result without parenthesis operations are performed from left to right
+In result with parenthesis multiplication is done first
+
+Subtraction Associativity
+Without parenthesis:
+Result of: 10-5-2 = 3
+With parenthesis:
+Result of: 10-(5-2) = 7
+In result without parenthesis subtraction is done from left to right
+In result with parenthesis subtraction inside parenthesis is done first
+
+Multiple Division
+Without parenthesis:
+Result of: 64/4/2 = 8.0
+With parenthesis:
+Result of: 64/(4/2) = 32.0
+In result without parenthesis division is done from left to right
+In result with parenthesis division inside parenthesis is done first
+Mixed Arithmetic, Comparison and Logical Operators
+Arithmetic before Comparison
+Without parenthesis:
+Result of: 2+3*4>10 = True
+In this result multiplication is done first, then addition and then comparison
+
+Comparison before and
+Result of: 5>3 and 10<20 = True
+In this result both comparisons are evaluated first and then and is applied
+
+and before or
+Result of: True or False and False = True
+In this result and is evaluated before or
+
+not before and
+Result of: not True and False = False
+In this result not is evaluated before and
+
+Complex Expression
+Result of: x*2<y and not y>20 or y==10 = True
+Arithmetic is done first, then comparison and finally logical operators

@@ -20,4 +20,4 @@ print(sentence.find("name"))
 print("python" in sentence)
 
 text="I love Java"
-print(text.replace("Jave","Python"))
+print(text.replace("Java","Python"))
