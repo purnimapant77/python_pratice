@@ -1,61 +1,126 @@
 import turtle
 import random
 
-# Create screen
+# Screen setup
 screen = turtle.Screen()
-screen.title("Simple Snake Game")
+screen.title("Snake Game")
 screen.bgcolor("black")
 screen.setup(width=600, height=600)
+screen.tracer(0)
 
-# Create snake
-snake = turtle.Turtle()
-snake.shape("square")
-snake.color("green")
-snake.penup()
+# Snake head
+head = turtle.Turtle()
+head.shape("square")
+head.color("green")
+head.penup()
+head.goto(0, 0)
+head.direction = "stop"
 
-# Create food
+# Food
 food = turtle.Turtle()
 food.shape("circle")
 food.color("red")
 food.penup()
 food.goto(100, 100)
 
-# Movement functions
-def move_up():
-    snake.setheading(90)
-    snake.forward(20)
+# Score
+score = 0
 
-def move_down():
-    snake.setheading(270)
-    snake.forward(20)
+score_display = turtle.Turtle()
+score_display.hideturtle()
+score_display.color("white")
+score_display.penup()
+score_display.goto(0, 260)
 
-def move_left():
-    snake.setheading(180)
-    snake.forward(20)
+# Snake body segments
+segments = []
 
-def move_right():
-    snake.setheading(0)
-    snake.forward(20)
+# Direction functions
+def go_up():
+    if head.direction != "down":
+        head.direction = "up"
+
+def go_down():
+    if head.direction != "up":
+        head.direction = "down"
+
+def go_left():
+    if head.direction != "right":
+        head.direction = "left"
+
+def go_right():
+    if head.direction != "left":
+        head.direction = "right"
 
 # Keyboard controls
 screen.listen()
-screen.onkey(move_up, "Up")
-screen.onkey(move_down, "Down")
-screen.onkey(move_left, "Left")
-screen.onkey(move_right, "Right")
+screen.onkeypress(go_up, "Up")
+screen.onkeypress(go_down, "Down")
+screen.onkeypress(go_left, "Left")
+screen.onkeypress(go_right, "Right")
 
-# Check food collision continuously
-def check_food():
-    if snake.distance(food) < 20:
-        print("Food Eaten!")
+# Update score
+def update_score():
+    score_display.clear()
+    score_display.write(
+        f"Score: {score}",
+        align="center",
+        font=("Arial", 16, "normal")
+    )
+
+update_score()
+
+# Move snake
+def move():
+
+    # Move body from back to front
+    for i in range(len(segments) - 1, 0, -1):
+        x = segments[i - 1].xcor()
+        y = segments[i - 1].ycor()
+        segments[i].goto(x, y)
+
+    # First segment follows head
+    if len(segments) > 0:
+        segments[0].goto(head.xcor(), head.ycor())
+
+    # Move head
+    if head.direction == "up":
+        head.sety(head.ycor() + 20)
+
+    elif head.direction == "down":
+        head.sety(head.ycor() - 20)
+
+    elif head.direction == "left":
+        head.setx(head.xcor() - 20)
+
+    elif head.direction == "right":
+        head.setx(head.xcor() + 20)
+
+    # Food collision
+    global score
+
+    if head.distance(food) < 20:
 
         x = random.randint(-280, 280)
         y = random.randint(-280, 280)
 
         food.goto(x, y)
 
-    screen.ontimer(check_food, 100)
+        # Add new body part
+        segment = turtle.Turtle()
+        segment.shape("square")
+        segment.color("lightgreen")
+        segment.penup()
 
-check_food()
+        segments.append(segment)
+
+        score += 1
+        update_score()
+
+    screen.update()
+    screen.ontimer(move, 100)
+
+# Start game loop
+move()
 
 turtle.done()
